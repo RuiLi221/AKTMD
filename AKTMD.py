@@ -86,7 +86,7 @@ def linked_KANlayer(cha_KAN_lacc, cha_KAN_gyr, cha_KAN_mag, cha_KAN_pre):
     return linked_KAN
 
 def MultiHeadAttention_layer(x, y):
-    att = tf.keras.layers.MultiHeadAttention(num_heads=3, key_dim=128, output_shape=128, dropout=1)(x, y)
+    att = tf.keras.layers.MultiHeadAttention(num_heads=3, key_dim=128, output_shape=128, dropout=0.1)(x, y)
     att1 = tf.keras.layers.AveragePooling1D(32)(att)
     att2 = tf.keras.layers.Flatten()(att1)
     return att2
